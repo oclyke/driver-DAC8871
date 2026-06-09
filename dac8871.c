@@ -36,3 +36,12 @@ dac8871_status_e dac8871_set_code(dac8871_dev_t* pdev, uint16_t code){
   retval |= pdev->_if->write_16b(code, pdev->_arg);
   return retval;
 }
+
+dac8871_status_e dac8871_latch(dac8871_dev_t* pdev){
+  if(pdev == NULL){ return DAC8871_STAT_ERR_INVALID_ARG; }
+  if(pdev->_if == NULL){ return DAC8871_STAT_ERR_INVALID_ARG; }
+  if(pdev->_if->set_ldac == NULL){ return DAC8871_STAT_OK; } // LDAC tied low externally; latch is always active
+  pdev->_if->set_ldac(true, pdev->_arg);  // deassert LDAC — holds input register stable
+  pdev->_if->set_ldac(false, pdev->_arg); // assert LDAC — transfers input register to DAC register
+  return DAC8871_STAT_OK;
+}
