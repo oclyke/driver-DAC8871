@@ -44,5 +44,6 @@ typedef struct _dac8871_dev_t {
 
 dac8871_status_e dac8871_init_dev(dac8871_dev_t* pdev, dac8871_if_t* pif, void* arg);
 dac8871_status_e dac8871_set_code(dac8871_dev_t* pdev, uint16_t code);
+dac8871_status_e dac8871_latch(dac8871_dev_t* pdev);
 
 #endif // _DAC8871_H_
