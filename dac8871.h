@@ -20,7 +20,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 #ifndef _DAC8871_H_
 #define _DAC8871_H_
 
-#include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
 
