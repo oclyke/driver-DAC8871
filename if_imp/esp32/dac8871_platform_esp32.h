@@ -57,12 +57,10 @@ extern dac8871_if_t dac8871_if_esp32;
 #define PIN_NUM_RST 22
 
 #define HOST            HSPI_HOST
-#define CLOCK_FREQ      40000000    // 50 MHz max for DA80004
-#define MAX_XFER_SIZE   0           // defaults to 4096 if set to 0
+#define CLOCK_FREQ      40000000    // 50 MHz max for DAC8871
+#define MAX_XFER_SIZE   0           // bytes; defaults to 4096 if left at 0
 #define MAX_Q_SIZE      1
 #define DMA_CHANNEL     1
-
-#define MAX_XFER_SIZE   0           // bytes. defaults to 4096 if left at 0
 
 // Globals
 dac8871_dev_t         dac = {0};
