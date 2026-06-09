@@ -49,7 +49,7 @@ dac8871_status_e dac8871_esp32_write_16b( uint16_t dat, void* arg ){
     spi_bus_add_device(if_args->host, &devcfg, &(if_args->spi));
     if_args->spi_initialized = true;
   }
-  ret |= spi_device_queue_trans(if_args->spi, &trans, portMAX_DELAY);
+  ret = spi_device_transmit(if_args->spi, &trans);
   return (ret == ESP_OK) ? DAC8871_STAT_OK : DAC8871_STAT_ERR;
 }
 
