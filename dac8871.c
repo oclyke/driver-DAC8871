@@ -35,6 +35,7 @@ dac8871_status_e dac8871_init_dev(dac8871_dev_t* pdev, dac8871_if_t* pif, void* 
 dac8871_status_e dac8871_set_code(dac8871_dev_t* pdev, uint16_t code){
   if(pdev == NULL){ return DAC8871_STAT_ERR_INVALID_ARG; }
   if(pdev->_if == NULL){ return DAC8871_STAT_ERR_INVALID_ARG; }
+  if(pdev->_if->write_16b == NULL){ return DAC8871_STAT_ERR_INVALID_ARG; }
   return pdev->_if->write_16b(code, pdev->_arg);
 }
 
