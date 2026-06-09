@@ -42,7 +42,7 @@ dac8871_status_e dac8871_esp32_write_16b( uint16_t dat, void* arg ){
   if(!if_args->spi_initialized){
     spi_device_interface_config_t devcfg={
         .clock_speed_hz = if_args->clk_freq,
-        .mode = 0,                                // SPI mode 0
+        .mode = 1,                                // SPI mode 1 (CPOL=0, CPHA=1): SCLK idles low, data sampled on falling edge
         .spics_io_num = if_args->cs_pin,        // Let ESP32 SPI driver handle SYNC line
         .queue_size = if_args->spi_q_size,
     };
